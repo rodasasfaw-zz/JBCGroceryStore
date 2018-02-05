@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cosmetic</title>
+</head>
+<body>
+<form autocomplete="off" action="#" th:action="@{/processcleaningitems}"
+      th:object="${cleaningitem}" method="post">
+    <span th:if="${#fields.hasErrors('cleaningbrand')}"
+          th:errors="*{cleaningbrand}">Cleaning Brand:</span>
+    <input type="text" id="cleaningbrand" placeholder="brand"
+           th:field="*{cleaningbrand}" /><br />
+
+
+    <span th:if="${#fields.hasErrors('cleaningprice')}"
+          th:errors="*{cleaningprice}">Price:</span>
+    <input type="text" id="cleaningprice" placeholder="price"
+           th:field="*{cleaningprice}" /><br />
+
+    <span th:if="${#fields.hasErrors('cleaningquantity')}"
+          th:errors="*{cleaningquantity}">Quantity:</span>
+    <input type="text" id="cleaningquantity" placeholder="quantity"
+           th:field="*{cleaningquantity}" /><br />
+
+    <span th:if="${#fields.hasErrors('cleaningstrength')}"
+          th:errors="*{cleaningstrength}">Strength:</span>
+    <input type="text" id="" placeholder="strength"
+           th:field="*{cleaningstrength}" /><br />
+
+
+
+    <button type="submit" class="btn btn-default" th:href="@{/processcleaningitems}">Submit</button>
+</form>
+</body>
+</html>

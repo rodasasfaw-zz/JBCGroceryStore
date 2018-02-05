@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cosmetic</title>
+</head>
+<body>
+<form autocomplete="off" action="#" th:action="@{/processcosmetics}"
+      th:object="${cosmetic}" method="post">
+    <span th:if="${#fields.hasErrors('cosmbrand')}"
+          th:errors="*{cosmbrand}">Cosmetic Brand:</span>
+    <input type="text" id="cosmbrand" placeholder="brand"
+           th:field="*{cosmbrand}" /><br />
+
+
+    <span th:if="${#fields.hasErrors('cosmprice')}"
+          th:errors="*{cosmprice}">Price:</span>
+    <input type="text" id="cosmprice" placeholder="price"
+           th:field="*{cosmprice}" /><br />
+
+    <span th:if="${#fields.hasErrors('cosmquantity')}"
+          th:errors="*{cosmquantity}">Quantity:</span>
+    <input type="text" id="cosmquantity" placeholder="quantity"
+           th:field="*{cosmquantity}" /><br />
+
+    <span th:if="${#fields.hasErrors('popularity')}"
+          th:errors="*{popularity}">Popularity:</span>
+    <input type="text" id="" placeholder="popularity"
+           th:field="*{popularity}" /><br />
+
+
+
+    <button type="submit" class="btn btn-default" th:href="@{/processcosmetics}">Submit</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Snacks</title>
+</head>
+<body>
+<form autocomplete="off" action="#" th:action="@{/processsnacks}"
+      th:object="${snack}" method="post">
+    <span th:if="${#fields.hasErrors('snackbrand')}"
+          th:errors="*{snackbrand}">Snack Brand:</span>
+    <input type="text" id="snackbrand" placeholder="brand"
+           th:field="*{snackbrand}" /><br />
+
+
+    <span th:if="${#fields.hasErrors('snackprice')}"
+          th:errors="*{snackprice}">Price:</span>
+    <input type="text" id="snackprice" placeholder="price"
+           th:field="*{snackprice}" /><br />
+
+    <span th:if="${#fields.hasErrors('snackquantity')}"
+          th:errors="*{snackquantity}">Quantity:</span>
+    <input type="text" id="snackquantity" placeholder="quantity"
+           th:field="*{snackquantity}" /><br />
+
+    <span th:if="${#fields.hasErrors('crunchiness')}"
+          th:errors="*{crunchiness}">crunchiness:</span>
+    <input type="text" id="" placeholder="crunchiness"
+           th:field="*{crunchiness}" /><br />
+
+
+
+    <button type="submit" class="btn btn-default" th:href="@{/processsnacks}">Submit</button>
+</form>
+</body>
+</html>

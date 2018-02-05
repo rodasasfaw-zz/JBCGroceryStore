@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<>
+<table>
+
+<a href="/addcosmetics"> Add a Cosmetics Item</a><br/>
+<a href="/addcleaningitems">Add a Cleaning Item </a><br/>
+<a href="/addsnacks"> Add Snacks Item</a><br/>
+<td>
+    <th>Cosmetic_Brand</th><br/>
+    <th>price</th><br/>
+    <th>popularity</th><br/>
+    <th>quantity</th><br/>
+</td>
+<td th:each="cosmetic:${cosmetics}">
+
+    <td th:text="${cosmetic.cosmbrand}"></td><br/>
+    <td th:double="${cosmetic.cosmprice}"></td><br/>
+    <td th:text="${cosmetic.popularity}"></td><br/>
+    <td th:int="${cosmetic.cosmquantity}"></td><br/>
+</td>
+</table>
+<table>
+
+
+    <td>
+    <th>Cleaning_Brand</th><br/>
+    <th>price</th><br/>
+    <th>Strength</th><br/>
+    <th>quantity</th><br/>
+    </td>
+    <td th:each="cleaningitem:${cleaningitems}">
+
+    <td th:text="${cleaningitem.cleaningbrand}"></td><br/>
+    <td th:double="${cleaningitem.cosmprice}"></td><br/>
+    <td th:text="${cleaningitem.cleaningstrength}"></td><br/>
+    <td th:int="${cleaningitem.cleaningquantity}"></td><br/>
+    </td>
+</table>
+
+<table>
+
+
+    <td>
+    <th>Snack_Brand</th><br/>
+    <th>price</th><br/>
+    <th>Crunchiness</th><br/>
+    <th>quantity</th><br/>
+    </td>
+<tr th:each="snack:${snacks}">
+    <td th:text="${snack.snackbrand}"></td>
+    <td th: text="${snack.snackprice}"></td>
+    <td th: text="${snack.crunchiness}"></td>
+    <td th: number="${snack.snackquantity}"></td>
+
+</tr>
+</table>
+
+</body>
+</html>
