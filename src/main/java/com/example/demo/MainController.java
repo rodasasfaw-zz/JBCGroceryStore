@@ -24,9 +24,9 @@ public class MainController {
 
     @RequestMapping("/")
     public String listJbc(Model model){
-        model.addAttribute("cosmetic", cosmeticsRepository.findAll());
-        model.addAttribute("cleaningitem", cleaningItemsRepository.findAll());
-        model.addAttribute("snack",snacksRepository.findAll());
+        model.addAttribute("cosmetics", cosmeticsRepository.findAll());
+        model.addAttribute("cleaningitems", cleaningItemsRepository.findAll());
+        model.addAttribute("snacks",snacksRepository.findAll());
         return "list";
     }
 
@@ -37,11 +37,11 @@ public class MainController {
      }
 
     @PostMapping("/processcosmetics")
-    public String processcosmeticForm(@Valid @ModelAttribute("cosmetic") Cosmetics cosmetic, BindingResult result) {
+    public String processcosmeticForm(@Valid @ModelAttribute("cosmetic") Cosmetics cosmetics, BindingResult result) {
         if (result.hasErrors()) {
             return "cosmeticsform";
         }
-        cosmeticsRepository.save(cosmetic);
+        cosmeticsRepository.save(cosmetics);
         return "redirect:/";
     }
 
@@ -53,12 +53,15 @@ public class MainController {
     }
 
     @PostMapping("/processcleaningitems")
-    public String processcleaningitemForm(@Valid @ModelAttribute("cleaningitem") CleaningItems cleaningitem,BindingResult result){
+    public String processcleaningitemForm(@Valid @ModelAttribute("cleaningitem") CleaningItems cleaningitems,BindingResult result){
         if(result.hasErrors()){
-            return "cleaningitemform";
+            return "cleaningitemsform";
         }
-        cleaningItemsRepository.save(cleaningitem);
+        cleaningItemsRepository.save(cleaningitems);
+        System.out.println(cleaningitems.getCleaningprice());
+        System.out.println(cleaningitems.getCleaningquantity());
         return "redirect:/";
+
     }
 
 
@@ -71,12 +74,12 @@ public class MainController {
 
 
 
-    @PostMapping("/processcleaningitems")
-    public String processsnackForm(@Valid @ModelAttribute("snack") Snacks snack,BindingResult result){
+    @PostMapping("/processsnacks")
+    public String processsnackForm(@Valid @ModelAttribute("snack") Snacks snacks,BindingResult result){
         if(result.hasErrors()){
             return "snacksform";
         }
-        snacksRepository.save(snack);
+        snacksRepository.save(snacks);
         return "redirect:/";
     }
 

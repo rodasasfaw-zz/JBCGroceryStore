@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 
 @Entity
 public class CleaningItems {
@@ -12,7 +13,21 @@ public class CleaningItems {
     private long id;
     private String cleaningbrand;
     private  String cleaningstrength;
+
+    @Min(0)
     private int cleaningquantity;
+
+    private double cleaningprice;
+
+    public CleaningItems() {
+    }
+
+    public CleaningItems(String cleaningbrand, String cleaningstrength, int cleaningquantity, double cleaningprice) {
+        this.cleaningbrand = cleaningbrand;
+        this.cleaningstrength = cleaningstrength;
+        this.cleaningquantity = cleaningquantity;
+        this.cleaningprice = cleaningprice;
+    }
 
     public long getId() {
         return id;
@@ -46,14 +61,13 @@ public class CleaningItems {
         this.cleaningquantity = cleaningquantity;
     }
 
-    public int getCleaningprice() {
+    public double getCleaningprice() {
         return cleaningprice;
     }
 
-    public void setCleaningprice(int cleaningprice) {
+    public void setCleaningprice(double cleaningprice) {
         this.cleaningprice = cleaningprice;
     }
 
-    private int cleaningprice;
 
 }

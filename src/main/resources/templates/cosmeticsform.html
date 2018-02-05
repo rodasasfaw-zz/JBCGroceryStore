@@ -5,7 +5,7 @@
     <title>Cosmetic</title>
 </head>
 <body>
-<form autocomplete="off" action="#" th:action="@{/processcosmetics}"
+<form  th:action="@{/processcosmetics}"
       th:object="${cosmetic}" method="post">
     <span th:if="${#fields.hasErrors('cosmbrand')}"
           th:errors="*{cosmbrand}">Cosmetic Brand:</span>
@@ -13,10 +13,10 @@
            th:field="*{cosmbrand}" /><br />
 
 
-    <span th:if="${#fields.hasErrors('cosmprice')}"
-          th:errors="*{cosmprice}">Price:</span>
+    <!--<span th:if="${#fields.hasErrors('cosmprice')}"-->
+          <!--th:errors="*{cosmprice}">Price:</span>-->
     <input type="text" id="cosmprice" placeholder="price"
-           th:field="*{cosmprice}" /><br />
+           th:field="${cosmetic.cosmprice}" /><br />
 
     <span th:if="${#fields.hasErrors('cosmquantity')}"
           th:errors="*{cosmquantity}">Quantity:</span>

@@ -4,26 +4,28 @@
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
-<>
-<table>
+<body>
+
 
 <a href="/addcosmetics"> Add a Cosmetics Item</a><br/>
 <a href="/addcleaningitems">Add a Cleaning Item </a><br/>
 <a href="/addsnacks"> Add Snacks Item</a><br/>
-<td>
-    <th>Cosmetic_Brand</th><br/>
-    <th>price</th><br/>
-    <th>popularity</th><br/>
-    <th>quantity</th><br/>
-</td>
-<td th:each="cosmetic:${cosmetics}">
 
+<table>
+    <td><strong>Cosmetic_Brand</strong></td>
+    <td><strong>price</strong></td>
+    <td><strong>popularity</strong></td>
+    <td><strong>quantity</strong></td>
+
+<tr th:each="cosmetic:${cosmetics}">
     <td th:text="${cosmetic.cosmbrand}"></td><br/>
-    <td th:double="${cosmetic.cosmprice}"></td><br/>
+    <td th:text="${cosmetic.cosmprice}"></td><br/>
     <td th:text="${cosmetic.popularity}"></td><br/>
-    <td th:int="${cosmetic.cosmquantity}"></td><br/>
-</td>
+    <td th:text="${cosmetic.cosmquantity}"></td><br/>
+
+</tr>
 </table>
+
 <table>
 
 
@@ -36,9 +38,9 @@
     <td th:each="cleaningitem:${cleaningitems}">
 
     <td th:text="${cleaningitem.cleaningbrand}"></td><br/>
-    <td th:double="${cleaningitem.cosmprice}"></td><br/>
+    <td th:text="${cleaningitem.cosmprice}"></td><br/>
     <td th:text="${cleaningitem.cleaningstrength}"></td><br/>
-    <td th:int="${cleaningitem.cleaningquantity}"></td><br/>
+    <td th:text="${cleaningitem.cleaningquantity}"></td><br/>
     </td>
 </table>
 
@@ -53,9 +55,9 @@
     </td>
 <tr th:each="snack:${snacks}">
     <td th:text="${snack.snackbrand}"></td>
-    <td th: text="${snack.snackprice}"></td>
-    <td th: text="${snack.crunchiness}"></td>
-    <td th: number="${snack.snackquantity}"></td>
+    <td th:text="${snack.snackprice}"></td>
+    <td th:text="${snack.crunchiness}"></td>
+    <td th:text="${snack.snackquantity}"></td>
 
 </tr>
 </table>

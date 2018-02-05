@@ -4,23 +4,35 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+
 
 @Entity
 public class Cosmetics {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     private String cosmbrand;
-    private double cosmprice;
-    private String popularity;
-    private int cosmquantity;
+    private Double cosmprice;
+
+    public Cosmetics() {
+    }
 
     public long getId() {
         return id;
     }
 
+    public Cosmetics(String cosmbrand, Double cosmprice, String popularity, int cosmquantity) {
+        this.cosmbrand = cosmbrand;
+        this.cosmprice = cosmprice;
+        this.popularity = popularity;
+        this.cosmquantity = cosmquantity;
+    }
+
     public void setId(long id) {
         this.id = id;
+
     }
 
     public String getCosmbrand() {
@@ -31,11 +43,11 @@ public class Cosmetics {
         this.cosmbrand = cosmbrand;
     }
 
-    public double getCosmprice() {
+    public Double getCosmprice() {
         return cosmprice;
     }
 
-    public void setCosmprice(double cosmprice) {
+    public void setCosmprice(Double cosmprice) {
         this.cosmprice = cosmprice;
     }
 
@@ -54,4 +66,9 @@ public class Cosmetics {
     public void setCosmquantity(int cosmquantity) {
         this.cosmquantity = cosmquantity;
     }
+    private String popularity;
+    @Min(0)
+    private int cosmquantity;
+
+
 }
