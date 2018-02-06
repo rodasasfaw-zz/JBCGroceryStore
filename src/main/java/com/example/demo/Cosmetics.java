@@ -14,25 +14,31 @@ public class Cosmetics {
     private long id;
 
     private String cosmbrand;
-    private Double cosmprice;
 
     public Cosmetics() {
     }
+
+    public Cosmetics(String cosmbrand, Double cosmprice, Double cosmtotalrevenue, String popularity, int cosmquantity) {
+        this.cosmbrand = cosmbrand;
+        this.cosmprice = cosmprice;
+        this.cosmtotalrevenue = cosmtotalrevenue;
+        this.popularity = popularity;
+
+        this.cosmquantity = cosmquantity;
+    }
+
+    private double cosmprice;
+    private double cosmtotalrevenue;
+    private String popularity;
+    @Min(0)
+    private int cosmquantity;
 
     public long getId() {
         return id;
     }
 
-    public Cosmetics(String cosmbrand, Double cosmprice, String popularity, int cosmquantity) {
-        this.cosmbrand = cosmbrand;
-        this.cosmprice = cosmprice;
-        this.popularity = popularity;
-        this.cosmquantity = cosmquantity;
-    }
-
     public void setId(long id) {
         this.id = id;
-
     }
 
     public String getCosmbrand() {
@@ -51,6 +57,13 @@ public class Cosmetics {
         this.cosmprice = cosmprice;
     }
 
+    public Double getCosmtotalrevenue() {
+        return cosmtotalrevenue;
+    }
+
+    public void setCosmtotalrevenue(Double cosmtotalrevenue) {
+        this.cosmtotalrevenue = cosmprice * cosmquantity;
+    }
     public String getPopularity() {
         return popularity;
     }
@@ -66,9 +79,4 @@ public class Cosmetics {
     public void setCosmquantity(int cosmquantity) {
         this.cosmquantity = cosmquantity;
     }
-    private String popularity;
-    @Min(0)
-    private int cosmquantity;
-
-
 }

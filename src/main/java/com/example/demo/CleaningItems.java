@@ -17,7 +17,24 @@ public class CleaningItems {
     @Min(0)
     private int cleaningquantity;
 
+    public CleaningItems(String cleaningbrand, String cleaningstrength, int cleaningquantity, double cleaningprice, double cleaningtotalrevenue) {
+        this.cleaningbrand = cleaningbrand;
+        this.cleaningstrength = cleaningstrength;
+        this.cleaningquantity = cleaningquantity;
+        this.cleaningprice = cleaningprice;
+        this.cleaningtotalrevenue = cleaningtotalrevenue;
+    }
+
+    public double getCleaningtotalrevenue() {
+        return cleaningtotalrevenue;
+    }
+
+    public void setCleaningtotalrevenue(double cleaningtotalrevenue) {
+        this.cleaningtotalrevenue =cleaningprice*cleaningquantity ;
+    }
+
     private double cleaningprice;
+    private double cleaningtotalrevenue;
 
     public CleaningItems() {
     }

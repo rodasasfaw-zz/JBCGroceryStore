@@ -22,6 +22,8 @@
           th:errors="*{snackquantity}">Quantity:</span>
     <input type="text" id="snackquantity" placeholder="quantity"
            th:field="*{snackquantity}" /><br />
+    <input type="text" id="snacktotalrevenue" placeholder="snacktotalrevenue"
+           th:field="${snack.snacktotalrevenue}" /><br />
 
     <span th:if="${#fields.hasErrors('crunchiness')}"
           th:errors="*{crunchiness}">crunchiness:</span>

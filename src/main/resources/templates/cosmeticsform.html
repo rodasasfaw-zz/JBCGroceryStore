@@ -20,8 +20,10 @@
 
     <span th:if="${#fields.hasErrors('cosmquantity')}"
           th:errors="*{cosmquantity}">Quantity:</span>
-    <input type="text" id="cosmquantity" placeholder="quantity"
+    <input type="number" id="cosmquantity" placeholder="quantity"
            th:field="*{cosmquantity}" /><br />
+    <input type="text" id="cosmtotalrevenue" placeholder="cosmtotalrevenue"
+           th:field="${cosmetic.cosmtotalrevenue}" /><br />
 
     <span th:if="${#fields.hasErrors('popularity')}"
           th:errors="*{popularity}">Popularity:</span>

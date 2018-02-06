@@ -20,6 +20,7 @@ public class MainController {
     CleaningItemsRepository cleaningItemsRepository;
     @Autowired
     SnacksRepository snacksRepository;
+private double total_revenue=0;
 
 
     @RequestMapping("/")
@@ -27,6 +28,10 @@ public class MainController {
         model.addAttribute("cosmetics", cosmeticsRepository.findAll());
         model.addAttribute("cleaningitems", cleaningItemsRepository.findAll());
         model.addAttribute("snacks",snacksRepository.findAll());
+        model.addAttribute("totalRevenue",total_revenue);
+
+
+
         return "list";
     }
 
@@ -42,6 +47,7 @@ public class MainController {
             return "cosmeticsform";
         }
         cosmeticsRepository.save(cosmetics);
+total_revenue+=cosmetics.getCosmtotalrevenue();
         return "redirect:/";
     }
 
@@ -58,8 +64,7 @@ public class MainController {
             return "cleaningitemsform";
         }
         cleaningItemsRepository.save(cleaningitems);
-        System.out.println(cleaningitems.getCleaningprice());
-        System.out.println(cleaningitems.getCleaningquantity());
+        total_revenue+=cleaningitems.getCleaningtotalrevenue();
         return "redirect:/";
 
     }
@@ -80,6 +85,7 @@ public class MainController {
             return "snacksform";
         }
         snacksRepository.save(snacks);
+total_revenue+=snacks.getSnacktotalrevenue();
         return "redirect:/";
     }
 

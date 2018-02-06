@@ -7,21 +7,23 @@
 <body>
 
 
-<a href="/addcosmetics"> Add a Cosmetics Item</a><br/>
+<a href="/addcosmetics"> Add a Cosmetic Item</a><br/>
 <a href="/addcleaningitems">Add a Cleaning Item </a><br/>
-<a href="/addsnacks"> Add Snacks Item</a><br/>
+<a href="/addsnacks"> Add a Snack Item</a><br/>
 
 <table>
     <td><strong>Cosmetic_Brand</strong></td>
     <td><strong>price</strong></td>
-    <td><strong>popularity</strong></td>
     <td><strong>quantity</strong></td>
+    <td><strong>popularity</strong></td>
+    <td><strong>Cosometic Total</strong></td>
 
 <tr th:each="cosmetic:${cosmetics}">
     <td th:text="${cosmetic.cosmbrand}"></td><br/>
     <td th:text="${cosmetic.cosmprice}"></td><br/>
-    <td th:text="${cosmetic.popularity}"></td><br/>
     <td th:text="${cosmetic.cosmquantity}"></td><br/>
+    <td th:text="${cosmetic.popularity}"></td><br/>
+    <td th:text="${cosmetic.cosmtotalrevenue}"></td><br/>
 
 </tr>
 </table>
@@ -29,38 +31,48 @@
 <table>
 
 
-    <td>
-    <th>Cleaning_Brand</th><br/>
-    <th>price</th><br/>
-    <th>Strength</th><br/>
-    <th>quantity</th><br/>
-    </td>
-    <td th:each="cleaningitem:${cleaningitems}">
 
-    <td th:text="${cleaningitem.cleaningbrand}"></td><br/>
-    <td th:text="${cleaningitem.cosmprice}"></td><br/>
-    <td th:text="${cleaningitem.cleaningstrength}"></td><br/>
-    <td th:text="${cleaningitem.cleaningquantity}"></td><br/>
-    </td>
+    <td><strong>Cleaning_Brand</strong></td>
+    <td><strong>price</strong></td>
+    <td><strong>quantity</strong></td>
+    <td><strong>Strength</strong></td>
+    <td><strong>Cleaning total </strong></td>
+
+    <tr th:each="cleaningitem:${cleaningitems}">
+
+    <td th:text="${cleaningitem.cleaningbrand}"></td>
+    <td th:text="${cleaningitem.cleaningprice}"></td>
+    <td th:text="${cleaningitem.cleaningquantity}"></td>
+    <td th:text="${cleaningitem.cleaningstrength}"></td>
+        <td th:text="${cleaningitem.cleaningtotalrevenue}"></td>
+
+    </tr>
 </table>
 
 <table>
 
 
-    <td>
-    <th>Snack_Brand</th><br/>
-    <th>price</th><br/>
-    <th>Crunchiness</th><br/>
-    <th>quantity</th><br/>
-    </td>
+
+    <td><strong>Snack_Brand</strong></td>
+    <td><strong>price</strong></td>
+    <td><strong>quantity</strong></td>
+    <td><strong>Crunchiness</strong></td>
+    <td><strong>Snack Total</strong></td>
+
 <tr th:each="snack:${snacks}">
     <td th:text="${snack.snackbrand}"></td>
     <td th:text="${snack.snackprice}"></td>
-    <td th:text="${snack.crunchiness}"></td>
     <td th:text="${snack.snackquantity}"></td>
+    <td th:text="${snack.crunchiness}"></td>
+    <td th:text="${snack.snacktotalrevenue}"></td>
 
 </tr>
 </table>
 
+
+
+<tr><b>Total Revenue: </b>
+    <p th:text="'total Revenue: ' +${totalRevenue}"></p>
+</tr>
 </body>
 </html>

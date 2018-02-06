@@ -20,14 +20,16 @@
 
     <span th:if="${#fields.hasErrors('cleaningquantity')}"
           th:errors="*{cleaningquantity}">Quantity:</span>
-    <input type="text" id="cleaningquantity" placeholder="quantity"
+    <input type="number" id="cleaningquantity" placeholder="quantity"
            th:field="*{cleaningquantity}" /><br />
+
+    <input type="text" id="cosmtotalrevenue" placeholder="cleaning total"
+           th:field="${cleaningitem.cleaningtotalrevenue}" /><br />
 
     <span th:if="${#fields.hasErrors('cleaningstrength')}"
           th:errors="*{cleaningstrength}">Strength:</span>
     <input type="text" id="" placeholder="strength"
            th:field="*{cleaningstrength}" /><br />
-
 
 
     <button type="submit" class="btn btn-default" th:href="@{/processcleaningitems}">Submit</button>
