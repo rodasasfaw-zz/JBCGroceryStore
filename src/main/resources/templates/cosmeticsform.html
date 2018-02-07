@@ -7,6 +7,7 @@
 <body>
 <form  th:action="@{/processcosmetics}"
       th:object="${cosmetic}" method="post">
+    
     <span th:if="${#fields.hasErrors('cosmbrand')}"
           th:errors="*{cosmbrand}">Cosmetic Brand:</span>
     <input type="text" id="cosmbrand" placeholder="brand"
